@@ -1,0 +1,4 @@
+dataset_id	module_gene_count	responder_mean_score	nonresponder_mean_score	direction	lodo_module_gene_count	lodo_responder_mean_score	lodo_nonresponder_mean_score	lodo_direction
+GSE12251	63	-0.4877292326261698	0.5320682537740035	higher_in_nonresponders	155	-0.28490298867040736	0.31080326036771716	higher_in_nonresponders
+GSE16879	63	-0.6011304435584109	0.3005652217792055	higher_in_nonresponders	274	-0.18390149459315316	0.0919507472965766	higher_in_nonresponders
+GSE23597	63	-0.32261160493680746	0.33727576879757143	higher_in_nonresponders	524	-0.17200010440882876	0.17981829097286645	higher_in_nonresponders

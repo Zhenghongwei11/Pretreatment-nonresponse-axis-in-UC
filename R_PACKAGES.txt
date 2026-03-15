@@ -1,0 +1,19 @@
+R dependencies (figures-only)
+- cowplot
+- dplyr
+- ggplot2
+- ggrepel
+- ggtext
+- gridExtra
+- readr
+- scales
+- stringr
+- tidyr
+
+Optional R dependencies (full bulk re-run from public GEO matrices)
+- msigdbr
+- limma
+- fgsea
+- AnnotationDbi
+- hgu133plus2.db
+

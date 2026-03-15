@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code or derived tables, please cite the associated manuscript."
+title: "Pretreatment nonresponse axis in ulcerative colitis infliximab cohorts (public reproducibility package)"
+authors:
+  - family-names: "Zheng"
+    given-names: "Hongwei"
+  - family-names: "Zhuang"
+    given-names: "Xin"
+  - family-names: "Chen"
+    given-names: "Wenbiao"
+date-released: "2026-03-15"
+license: "MIT"
+

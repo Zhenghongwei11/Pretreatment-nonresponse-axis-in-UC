@@ -1,0 +1,8 @@
+cell_state	enrichment_score	median_module_score	n_cells	present_module_genes	supporting_genes	interpretation
+unassigned	0.12512208172186814	0.12133325052785879	67	58	SRGN|HLA-DQA1|OSBPL8|ELOVL5|NAMPT	marker-based coarse epithelial state assignment from deposited expression matrix
+cycling	0.11266840484907889	0.11463274062479979	579	58	SRGN|CFLAR|NAMPT|ELOVL5|OSBPL8	marker-based coarse epithelial state assignment from deposited expression matrix
+stem_ta	0.10776210434940256	0.10772638352127784	108	58	SRGN|HLA-DQA1|CFLAR|OSBPL8|NAMPT	marker-based coarse epithelial state assignment from deposited expression matrix
+stress_inflammatory_epithelial	0.07449331591869238	0.06300892543414184	544	58	CFLAR|NAMPT|SRGN|HLA-DQA1|BNIP2	marker-based coarse epithelial state assignment from deposited expression matrix
+goblet_secretory	0.0560764289704904	0.04426016227046736	1510	58	CFLAR|SRGN|NAMPT|ACTN1|BNIP2	marker-based coarse epithelial state assignment from deposited expression matrix
+regenerative_notch	0.04118759170680089	0.03538637214818715	6315	58	CFLAR|NAMPT|ACTN1|BNIP2|SIPA1L1	marker-based coarse epithelial state assignment from deposited expression matrix
+best4_absorptive	0.03387990123374644	0.03104575377118094	2052	58	CFLAR|NAMPT|BNIP2|SRGN|PTPRE	marker-based coarse epithelial state assignment from deposited expression matrix

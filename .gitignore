@@ -1,0 +1,11 @@
+.DS_Store
+
+# Raw and processed data are downloaded/derived locally and are not distributed.
+data/raw/
+data/processed/
+
+# R environment (renv)
+renv/library/
+renv/python/
+renv/staging/
+

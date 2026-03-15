@@ -1,0 +1,4 @@
+dataset_id	disease_subset	therapy	pretreatment_n	responder_n	nonresponder_n	platform	notes
+GSE12251	UC	infliximab	23	12	11	GPL570	All imported samples appear to be pretreatment W0 biopsies; response encoded in characteristics_ch1
+GSE16879	UC subset from mixed IBD cohort	infliximab	24	8	16	GPL570	Filtered to UC biopsies before first infliximab treatment using source_name_ch1
+GSE23597	UC	infliximab	45	23	22	GPL570	Filtered to W0 baseline biopsies using title; response encoded as wk30 response

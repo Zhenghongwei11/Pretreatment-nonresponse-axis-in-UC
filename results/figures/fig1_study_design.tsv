@@ -1,0 +1,6 @@
+dataset_id	role	disease_subset	therapy	pretreatment_n	responder_n	nonresponder_n	platform	analysis_module
+GSE12251	discovery	UC	infliximab	23	12	11	GPL570	bulk_discovery_replication
+GSE16879	replication	UC subset from mixed IBD cohort	infliximab	24	8	16	GPL570	bulk_discovery_replication
+GSE23597	cohort3	UC	infliximab	45	23	22	GPL570	bulk_discovery_replication
+GSE116222	epithelial_single_cell_localization	colonic epithelium	none	11175_cells	NA	NA	scRNA-seq	marker_mode_epithelial_localization
+GSE125527	immune_single_cell_localization	rectal immune compartment (rectum-only subset)	none	29372_cells	NA	NA	scRNA-seq	rectal_immune_localization
