@@ -1,33 +1,17 @@
-# Statistical Decision Rules (Predeclared)
+# Statistical Decision Rules
 
-This document records key thresholds and modeling conventions used by the scripts in this reproducibility package.
+The primary analysis uses public pretreatment mucosal transcriptomes from three infliximab-treated UC cohorts. Response labels were harmonized from deposited study metadata before modeling.
 
-## Differential expression (bulk microarray)
+Differential expression was estimated within each cohort using limma on GPL570 probe-level expression matrices. Probe-level results were mapped to gene symbols with the GPL570 annotation, keeping one representative probe per symbol after ranking by P value and absolute log fold-change.
 
-- Per-cohort differential expression is computed with `limma` (empirical Bayes moderation).
-- Multiple testing adjustment is Benjamini-Hochberg (BH) as reported by `limma` (`adj.P.Val`).
+The fixed consensus signature contains genes upregulated in nonresponders and nominally significant at P < 0.01 in all three primary cohorts. This fixed signature is used for interpretation, localization, and sensitivity analyses.
 
-## Pathway analysis (Hallmark fGSEA)
+Held-out performance is summarized with a leave-one-dataset-out axis. For each held-out cohort, genes are selected only from the other two cohorts and then scored in the held-out cohort. Standardized effects are reported as Hedges' g for nonresponders versus responders with 95% confidence intervals.
 
-- Hallmark gene sets are tested using `fgsea`.
-- Reported false discovery rates (FDR) are BH-adjusted within the Hallmark collection.
-- A pathway is treated as significant if FDR < 0.05.
+Pathway analysis uses Hallmark gene sets and signed preranked statistics. Positive signed enrichment denotes higher activity in nonresponders; negative signed enrichment denotes higher activity in responders.
 
-## Consensus gene module and LODO axis
+Specificity analyses evaluate whether the nonresponse axis remains associated with response after adjustment for inflammatory and remodeling proxies. These analyses are interpreted as sensitivity checks rather than causal adjustment.
 
-- A 63-gene cross-cohort consensus module is defined as genes that are directionally higher in nonresponders and meet nominal P < 0.05 in all three bulk cohorts (see `results/deg/gene_direction_filtered.tsv`).
-- The leave-one-dataset-out (LODO) axis is computed by defining a gene set using only the two training cohorts for each held-out cohort (nominal P < 0.05 in both training cohorts; direction higher in nonresponders), then scoring the held-out samples using that gene set.
+The GSE92415 analysis is treated as class-level anti-TNF sensitivity evidence because it uses a golimumab-treated cohort rather than an infliximab-treated cohort.
 
-## Effect sizes and meta-analysis
-
-- Group differences are summarized using Hedges' g (nonresponder minus responder), with small-sample correction.
-- Standard errors follow the conventional Hedges' g large-sample approximation implemented in `scripts/summarize_module_effects.py`.
-- 95% confidence intervals are computed as effect +/- 1.96 * SE.
-- P-values for per-cohort and pooled effects use a normal approximation (two-sided).
-- Pooled effects use an inverse-variance random-effects model with tau^2 estimated by the DerSimonian-Laird method and heterogeneity summarized by I^2.
-
-## Specificity checks (proxy adjustment)
-
-- Proxy-adjusted effects are computed in `scripts/run_specificity_checks.R`.
-- The primary display uses the unadjusted effect ("none") and progressively stricter adjustments (inflammation proxy; Hallmark inflammation; Hallmark inflammation + EMT proxy), as recorded in `results/figures/fig5_specificity_summary.tsv`.
-
+Single-cell analyses provide cellular-context localization using processed public references. They are not treatment-response validation cohorts.

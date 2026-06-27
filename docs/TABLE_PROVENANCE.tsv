@@ -1,0 +1,10 @@
+table	output_paths	script	primary_inputs	notes
+Table S0	supplementary_tables/TableS0_INDEX.xlsx	manual index table	supplementary table files	Index of supplementary tables.
+Table S1	supplementary_tables/TableS1_68gene_consensus_signature.xlsx	scripts/compute_module_scores.py	results/scores/strict_nonresponse_module_genes.txt	Fixed 68-gene consensus signature.
+Table S2	supplementary_tables/TableS2_replication_effect_sizes.xlsx	scripts/summarize_module_effects.py	results/scores/*_module_scores.tsv	Consensus-signature and LODO effect sizes.
+Table S3	supplementary_tables/TableS3_specificity_checks.xlsx	scripts/run_specificity_checks.R	results/scores/*_module_scores.tsv; data/processed/core_bulk/*	Inflammation and remodeling proxy adjustment.
+Table S4	supplementary_tables/TableS4_hallmark_fgsea_all.xlsx	scripts/run_hallmark_fgsea.R	results/deg/*_deg_gene.tsv	Full Hallmark enrichment outputs.
+Table S5	supplementary_tables/TableS5_singlecell_localization.xlsx	scripts/make_publication_figures.R; scripts/build_supplementary_validation_support.py	results/figures/fig4_localization_integrated.tsv	Single-cell localization summary.
+Table S6	supplementary_tables/TableS6_gse92415_antiTNF_class_sensitivity.xlsx	scripts/score_signature_one_dataset.py	results/sensitivity/GSE92415_signature_effect.tsv	GSE92415 class-level sensitivity analysis.
+Table S7	supplementary_tables/TableS7_gene_set_overlap_and_singlecell_tests.xlsx	scripts/build_supplementary_validation_support.py	results/scores/lodo_modules/*; results/singlecell/*	LODO gene-set overlap and single-cell statistical tests.
+Rendered supplementary tables	docs/SUPPLEMENTARY_TABLES.md	scripts/build_supplementary_tables_md.py	supplementary_tables/*.xlsx	Readable markdown rendering of Tables S1-S7.

@@ -19,7 +19,7 @@ dir.create(pathway_dir, recursive = TRUE, showWarnings = FALSE)
 
 datasets <- c("GSE12251", "GSE16879", "GSE23597")
 
-hallmark_df <- msigdbr(species = "Homo sapiens", category = "H")
+hallmark_df <- msigdbr(species = "Homo sapiens", collection = "H")
 hallmark_sets <- split(hallmark_df$gene_symbol, hallmark_df$gs_name)
 
 all_rows <- list()
@@ -37,7 +37,7 @@ for (acc in datasets) {
     fgsea(pathways = hallmark_sets, stats = ranks, eps = 0)
   )
   fg$dataset_id <- acc
-  fg$direction <- ifelse(fg$NES > 0, "up_in_responders", "up_in_nonresponders")
+  fg$direction <- ifelse(fg$NES > 0, "Enriched in responders", "Enriched in nonresponders")
   fg$leadingEdge <- vapply(fg$leadingEdge, function(x) paste(x, collapse = "|"), character(1))
   fg <- fg[order(fg$padj, -abs(fg$NES)), ]
   out_path <- file.path(pathway_dir, paste0(acc, "_hallmark_fgsea.tsv"))
@@ -81,7 +81,7 @@ summary_df$max_same_direction_cohorts <- apply(
   function(x) {
     x <- na.omit(x)
     if (length(x) == 0) return(0)
-    max(sum(x == "up_in_nonresponders"), sum(x == "up_in_responders"))
+    max(sum(x == "Enriched in nonresponders"), sum(x == "Enriched in responders"))
   }
 )
 

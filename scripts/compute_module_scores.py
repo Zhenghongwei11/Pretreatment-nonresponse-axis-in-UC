@@ -47,13 +47,24 @@ def load_strict_module():
     with path.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle, delimiter="\t")
         for row in reader:
-            if (
+            if not (
                 row["GSE12251_direction"] == "up_in_nonresponders"
                 and row["GSE16879_direction"] == "up_in_nonresponders"
                 and row["GSE23597_direction"] == "up_in_nonresponders"
-                and int(row["nominal_p_lt_0_05_cohorts"]) == 3
             ):
-                genes.append(row["SYMBOL"])
+                continue
+            # Use a stricter cross-cohort nominal threshold to keep the
+            # interpretable consensus signature compact and reduce
+            # over-selection under imbalanced cohorts.
+            try:
+                if (
+                    float(row["GSE12251_PValue"]) < 0.01
+                    and float(row["GSE16879_PValue"]) < 0.01
+                    and float(row["GSE23597_PValue"]) < 0.01
+                ):
+                    genes.append(row["SYMBOL"])
+            except ValueError:
+                continue
     return sorted(set(genes))
 
 

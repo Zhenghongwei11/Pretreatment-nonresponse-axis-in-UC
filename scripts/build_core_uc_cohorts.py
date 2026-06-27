@@ -91,8 +91,12 @@ def build_gse23597(rows):
         title = row.get("title", "")
         if "/W0" not in title:
             continue
+        # Restrict to infliximab-treated arms (exclude placebo) to keep the core
+        # claim focused on anti-TNF response biology.
+        if "Placebo" in title:
+            continue
         response, raw = parse_response_from_text(
-            row.get("characteristics_ch1", ""), "wk30 response: Yes", "wk30 response: No"
+            row.get("characteristics_ch1", ""), "wk8 response: Yes", "wk8 response: No"
         )
         if response is None:
             continue
@@ -107,7 +111,7 @@ def build_gse23597(rows):
                 "response_binary": response,
                 "response_label_raw": raw,
                 "include_core_analysis": "yes",
-                "selection_rule": "title contains /W0 and wk30 response label available",
+                "selection_rule": "baseline (W0) infliximab arms only + wk8 response label available",
             }
         )
     return selected

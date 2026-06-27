@@ -194,10 +194,25 @@ def main():
         writer.writeheader()
         writer.writerows(summary_rows)
 
+    gene_means_path = OUT_DIR / "GSE125527_rectal_immune_signature_gene_means.tsv"
+    group_order = sorted(state_groups.keys())
+    group_labels = [f"{disease}_{celltype}" for disease, celltype in group_order]
+    with gene_means_path.open("w", encoding="utf-8", newline="") as handle:
+        fieldnames = ["gene"] + group_labels
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, delimiter="\t")
+        writer.writeheader()
+        for gene_i, gene in enumerate(module_present):
+            row = {"gene": gene}
+            for (disease, celltype), label in zip(group_order, group_labels):
+                idxs = np.array(state_groups[(disease, celltype)], dtype=int)
+                row[label] = float(np.mean(normalized_module[gene_i, idxs]))
+            writer.writerow(row)
+
     disease_summary = Counter(row["disease_assignment"] for row in selected_meta)
     celltype_summary = Counter(row["celltype"] for row in selected_meta)
     print(f"[ok] wrote {assignments_path}")
     print(f"[ok] wrote {fig_path}")
+    print(f"[ok] wrote {gene_means_path}")
     print(f"[ok] rectal_cells={len(selected_meta)} disease_breakdown={dict(disease_summary)} celltypes={dict(celltype_summary)} module_genes_present={len(module_present)}")
 
 

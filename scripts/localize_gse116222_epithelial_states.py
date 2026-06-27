@@ -23,6 +23,16 @@ STATE_MARKERS = {
     "stress_inflammatory_epithelial": ["DUOX2", "DUOXA2", "LCN2", "REG1A", "REG1B", "CXCL1", "CXCL8"],
 }
 
+STATE_DISPLAY = {
+    "best4_absorptive": "BEST4+ absorptive",
+    "goblet_secretory": "Goblet (secretory)",
+    "stem_ta": "Stem/TA",
+    "cycling": "Cycling",
+    "regenerative_notch": "Regenerative (Notch)",
+    "stress_inflammatory_epithelial": "Stress/inflammatory epithelial",
+    "unassigned": "Unassigned",
+}
+
 
 def read_module_genes():
     with MODULE_PATH.open("r", encoding="utf-8") as handle:
@@ -46,6 +56,24 @@ def top_supporting_genes(state_mask, normalized_by_gene, module_genes, top_n=5):
         gene_means.append((gene, float(np.mean(normalized_by_gene[gene][state_mask]))))
     gene_means.sort(key=lambda x: x[1], reverse=True)
     return "|".join(g for g, _ in gene_means[:top_n])
+
+
+def write_gene_state_means(path, assigned_states, normalized_by_gene, module_genes):
+    states = [state for state in STATE_MARKERS.keys() if state in set(assigned_states)]
+    state_labels = [STATE_DISPLAY.get(state, state) for state in states]
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        fieldnames = ["gene"] + state_labels
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, delimiter="\t")
+        writer.writeheader()
+        for gene in module_genes:
+            if gene not in normalized_by_gene:
+                continue
+            row = {"gene": gene}
+            values = normalized_by_gene[gene]
+            for state, label in zip(states, state_labels):
+                mask = np.array([x == state for x in assigned_states])
+                row[label] = mean_or_nan(values[mask])
+            writer.writerow(row)
 
 
 def main():
@@ -110,7 +138,7 @@ def main():
         for i, cell_id in enumerate(cell_ids):
             row = {
                 "cell_id": cell_id,
-                "assigned_state": assigned_states[i],
+                "assigned_state": STATE_DISPLAY.get(assigned_states[i], assigned_states[i]),
                 "module_score": module_score[i],
             }
             for state in state_names:
@@ -119,13 +147,15 @@ def main():
 
     summary_rows = []
     for state in sorted(set(assigned_states)):
+        if state == "unassigned":
+            continue
         mask = np.array([x == state for x in assigned_states])
         state_cell_count = int(mask.sum())
         if state_cell_count == 0:
             continue
         summary_rows.append(
             {
-                "cell_state": state,
+                "cell_state": STATE_DISPLAY.get(state, state),
                 "enrichment_score": mean_or_nan(module_score[mask]),
                 "median_module_score": float(np.median(module_score[mask])),
                 "n_cells": state_cell_count,
@@ -151,15 +181,19 @@ def main():
             present = [gene for gene in genes if gene in normalized_by_gene]
             writer.writerow(
                 {
-                    "state": state,
+                    "state": STATE_DISPLAY.get(state, state),
                     "present_markers": "|".join(present),
                     "n_present_markers": len(present),
                 }
             )
 
+    gene_means_path = OUT_DIR / "GSE116222_signature_gene_state_means.tsv"
+    write_gene_state_means(gene_means_path, assigned_states, normalized_by_gene, module_present)
+
     print(f"[ok] wrote {assignments_path}")
     print(f"[ok] wrote {fig4_path}")
     print(f"[ok] wrote {marker_path}")
+    print(f"[ok] wrote {gene_means_path}")
     print(f"[ok] cells={len(cell_ids)} genes_in_matrix={len(selected_counts)} module_genes_present={len(module_present)}")
 
 

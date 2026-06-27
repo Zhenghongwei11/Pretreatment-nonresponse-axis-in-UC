@@ -1,11 +1,21 @@
 .DS_Store
+.Rhistory
+.RData
+__pycache__/
+*.pyc
 
-# Raw and processed data are downloaded/derived locally and are not distributed.
+# Raw and processed data are downloaded or rebuilt locally.
 data/raw/
 data/processed/
 
-# R environment (renv)
+# Local environments
+.venv/
+venv/
 renv/library/
 renv/python/
 renv/staging/
 
+# Local credentials
+token
+*.pem
+*.key

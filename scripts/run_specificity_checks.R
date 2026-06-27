@@ -75,7 +75,7 @@ compute_gene_set_proxy <- function(expr, symbol_probe_map, gene_set) {
   rowMeans(z_mat, na.rm = TRUE)
 }
 
-hallmark_df <- msigdbr(species = "Homo sapiens", category = "H")
+hallmark_df <- msigdbr(species = "Homo sapiens", collection = "H")
 hallmark_inflammatory_genes <- unique(hallmark_df$gene_symbol[hallmark_df$gs_name == "HALLMARK_INFLAMMATORY_RESPONSE"])
 hallmark_emt_genes <- unique(hallmark_df$gene_symbol[hallmark_df$gs_name == "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION"])
 
@@ -227,7 +227,7 @@ write.table(
 
 message("[ok] wrote specificity checks to ", file.path(bench_dir, "specificity_checks.tsv"))
 
-# Figure 5 anchor: use the interpretable 63-gene consensus signature.
+# Figure 5 anchor: use the interpretable 68-gene consensus signature.
 fig5 <- out[out$feature_or_axis == "strict_nonresponse_module", ]
 fig5 <- fig5[, c("dataset_id", "severity_proxy", "base_effect", "adjusted_effect",
                  "ci_lower", "ci_upper", "pvalue", "fdr", "interpretation")]

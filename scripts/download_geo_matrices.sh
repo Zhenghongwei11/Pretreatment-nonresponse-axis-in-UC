@@ -15,7 +15,11 @@ download_one() {
   local out="${OUT_DIR}/${accession}_series_matrix.txt.gz"
 
   echo "[download] ${accession}"
-  curl -fL -C - "${url}" -o "${out}"
+  curl -fL -C - \
+    --retry 10 \
+    --retry-delay 2 \
+    --retry-all-errors \
+    "${url}" -o "${out}"
   echo "[ok] ${out}"
 }
 

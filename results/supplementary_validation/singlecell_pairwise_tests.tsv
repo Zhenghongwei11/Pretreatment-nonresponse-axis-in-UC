@@ -1,0 +1,17 @@
+reference	subset	test	grouping	group	comparator	n_group	n_comparator	group_mean	comparator_mean	direction	statistic	pvalue	p_adj_bh
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	BEST4+ absorptive	all other groups	2052	9056	0.03863164524416579	0.059327334990981966	lower	7290323.5	4.830980527588167e-53	9.661961055176335e-53
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	Cycling	all other groups	579	10529	0.12539075672761626	0.05166105362086344	higher	4768842.0	3.382822752628372e-117	1.0825032808410791e-116
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	Goblet (secretory)	all other groups	1510	9598	0.06646530709851477	0.053779732027568625	higher	8359654.5	4.634011470993375e-22	6.740380321444909e-22
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	Regenerative (Notch)	all other groups	6315	4793	0.04800819113302753	0.06538050380018612	lower	13188676.5	1.6888286415728968e-31	2.702125826516635e-31
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	Stem/TA	all other groups	108	11000	0.11496218704201865	0.05492041504716572	higher	843140.5	4.406732233244733e-14	5.036265409422552e-14
+GSE116222	epithelial_states	Mann-Whitney U one-vs-rest	assigned_state	Stress/inflammatory epithelial	all other groups	544	10564	0.0895530158247771	0.053750817977156584	higher	3736760.0	1.2862972397003374e-32	2.2867506483561553e-32
+GSE125527	rectum_diseased	Mann-Whitney U one-vs-rest	celltype	B	all other groups	5704	11205	0.17000314264683533	0.21722049785181372	lower	22904873.5	7.500147301310309e-200	4.0000785606988317e-199
+GSE125527	rectum_diseased	Mann-Whitney U one-vs-rest	celltype	M/DC	all other groups	259	16650	0.5829047884484017	0.1953562320648039	higher	4239232.0	2.6369240667259468e-157	1.0547696266903787e-156
+GSE125527	rectum_diseased	Mann-Whitney U one-vs-rest	celltype	NK	all other groups	283	16626	0.24061718338523447	0.2006230567297666	higher	3013817.0	4.63766433847789e-16	5.707894570434326e-16
+GSE125527	rectum_diseased	Mann-Whitney U one-vs-rest	celltype	T	all other groups	10103	6806	0.20955063369679552	0.18903372786488334	higher	41389173.5	2.91970421305525e-112	7.785877901480666e-112
+GSE125527	rectum_diseased	Mann-Whitney U one-vs-rest	celltype	unknown	all other groups	560	16349	0.17464039836551806	0.20220533249754918	lower	3876547.0	6.695567086361673e-10	6.695567086361673e-10
+GSE125527	rectum_healthy	Mann-Whitney U one-vs-rest	celltype	B	all other groups	4753	7710	0.1356710195689987	0.2028964300045053	lower	10473760.5	0.0	0.0
+GSE125527	rectum_healthy	Mann-Whitney U one-vs-rest	celltype	M/DC	all other groups	129	12334	0.525992588725448	0.17361138214695992	higher	1552439.0	2.2590566600489706e-77	5.163558080111933e-77
+GSE125527	rectum_healthy	Mann-Whitney U one-vs-rest	celltype	NK	all other groups	127	12336	0.23229627834756955	0.1766921371592125	higher	1063979.5	3.4729736176447564e-12	3.704505192154407e-12
+GSE125527	rectum_healthy	Mann-Whitney U one-vs-rest	celltype	T	all other groups	7130	5333	0.1997389312806574	0.14720368485188448	higher	26358073.0	4.3195559567947933e-299	3.4556447654358346e-298
+GSE125527	rectum_healthy	Mann-Whitney U one-vs-rest	celltype	unknown	all other groups	324	12139	0.13221674076519999	0.17846096114492646	lower	1432105.0	6.199842723240971e-17	8.266456964321295e-17

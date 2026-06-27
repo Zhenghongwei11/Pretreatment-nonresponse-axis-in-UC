@@ -1,11 +1,11 @@
 dataset_id	tissue_assignment	disease_assignment	cell_state	enrichment_score	median_module_score	n_cells	present_module_genes	supporting_genes	interpretation
-GSE125527	R	diseased	M/DC	0.5659610226391192	0.5777957756426121	259	29	SRGN|HLA-DQA1|NAMPT|PTPRE|CCDC88A	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	diseased	NK	0.2897963965727952	0.2884756778082018	283	29	SRGN|TAGAP|CFLAR|OSBPL8|RIPOR2	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	diseased	T	0.23007440961082412	0.22543475023111098	10103	29	SRGN|TAGAP|CFLAR|OSBPL8|NAMPT	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	diseased	unknown	0.21785115153102624	0.20636726745168377	560	29	SRGN|HLA-DQA1|TAGAP|ELOVL5|BNIP2	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	diseased	B	0.19559873942333458	0.18140627875651089	5704	29	HLA-DQA1|SRGN|TAGAP|CFLAR|RIPOR2	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	healthy	M/DC	0.5211365420449242	0.5443923943541993	129	29	SRGN|HLA-DQA1|NAMPT|PTPRE|TAGAP	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	healthy	NK	0.24589764675997552	0.23967271620661748	127	29	SRGN|TAGAP|OSBPL8|PREX1|CFLAR	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	healthy	T	0.1985603512063064	0.1912109829775921	7130	29	SRGN|TAGAP|OSBPL8|CFLAR|NAMPT	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	healthy	B	0.1476737511499621	0.12954703692691455	4753	29	SRGN|HLA-DQA1|CFLAR|TAGAP|FLI1	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
-GSE125527	R	healthy	unknown	0.13841449268033748	0.12236094625524291	324	29	SRGN|TAGAP|CFLAR|HLA-DQA1|OSBPL8	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	diseased	M/DC	0.5829047884484017	0.5874833563231637	259	40	SRGN|HLA-DQA1|SOD2|PTPRC|GLIPR1	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	diseased	NK	0.24061718338523452	0.2370975736665118	283	40	SRGN|PTPRC|TAGAP|CFLAR|NR4A3	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	diseased	T	0.20955063369679555	0.20765578464935822	10103	40	SRGN|PTPRC|TAGAP|SOCS3|CFLAR	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	diseased	unknown	0.17464039836551806	0.17434669214932358	560	40	PTPRC|SRGN|HLA-DQA1|TAGAP|CFLAR	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	diseased	B	0.17000314264683536	0.16005143386497087	5704	40	HLA-DQA1|SRGN|PTPRC|TAGAP|SOCS3	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	healthy	M/DC	0.525992588725448	0.5358419151983937	129	40	SRGN|HLA-DQA1|SOD2|PTPRC|GLIPR1	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	healthy	NK	0.23229627834756958	0.2393851338772049	127	40	SRGN|PTPRC|IER5|TAGAP|NR4A3	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	healthy	T	0.1997389312806574	0.19855865430704595	7130	40	SRGN|PTPRC|TAGAP|GLIPR1|IER5	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	healthy	B	0.13567101956899874	0.12115844247643508	4753	40	SRGN|HLA-DQA1|PTPRC|CFLAR|TAGAP	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata
+GSE125527	R	healthy	unknown	0.1322167407652	0.12663684971064085	324	40	SRGN|PTPRC|TAGAP|GLIPR1|CFLAR	rectal immune-cell localization from sparse UMI matrix and deposited GEO metadata

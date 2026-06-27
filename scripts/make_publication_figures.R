@@ -145,13 +145,26 @@ hc_long <- hc %>%
     dataset_label = factor(dataset_id, levels = c("GSE12251", "GSE16879", "GSE23597"), labels = c("Discovery", "Replication", "Cohort 3"))
   )
 
-hc_disc <- hc_long %>% filter(dataset_id == "GSE12251") %>% arrange(signed_NES)
+hc_disc <- hc_long %>%
+  filter(dataset_id == "GSE12251") %>%
+  arrange(signed_NES) %>%
+  mutate(
+    q_label = if_else(
+      !is.na(padj) & padj < 0.001,
+      paste0("q=", scientific(padj, digits = 1)),
+      paste0("q=", signif(padj, 2))
+    ),
+    label_x = if_else(signed_NES >= 0, signed_NES + 0.12, signed_NES - 0.12),
+    label_hjust = if_else(signed_NES >= 0, 0, 1)
+  )
 
 p2a <- ggplot(hc_disc, aes(x = signed_NES, y = reorder(pathway_label, signed_NES), fill = enrich)) +
   geom_vline(xintercept = 0, linewidth = 0.35, colour = col_neutral) +
   geom_col(width = 0.75, colour = NA, alpha = 0.9) +
+  geom_text(aes(x = label_x, label = q_label, hjust = label_hjust), size = 1.8, family = font_family, colour = col_annotation) +
   scale_fill_manual(values = c("Higher in nonresponders" = col_nonresponder, "Higher in responders" = col_responder), guide = "none") +
-  labs(title = "A. Pathways enriched in discovery cohort", subtitle = "Analysis of pretreatment mucosal transcriptomes", x = "Signed NES", y = NULL) +
+  scale_x_continuous(expand = expansion(mult = c(0.22, 0.26))) +
+  labs(title = "A. Pathways enriched in discovery cohort", subtitle = "Signed NES with FDR q-values", x = "Signed NES", y = NULL) +
   theme_pub + theme(axis.text.y = element_text(size = 7), panel.grid.major.x = element_line(colour = col_gridline, linewidth = 0.2))
 
 hc_mat <- hc_long %>% mutate(pathway_label = factor(pathway_label, levels = rev(levels(reorder(hc_disc$pathway_label, hc_disc$signed_NES)))), pt_alpha = if_else(sig == "FDR < 0.05", 1.0, 0.35))
@@ -162,7 +175,7 @@ p2b <- ggplot(hc_mat, aes(x = dataset_label, y = pathway_label)) +
   scale_colour_manual(values = c("Higher in nonresponders" = col_nonresponder, "Higher in responders" = col_responder), name = "Direction") +
   scale_alpha_identity() +
   scale_size_continuous(range = c(1, 5), breaks = c(1, 2, 5, 10), name = expression(-log[10] * " FDR")) +
-  labs(title = "B. Cross-cohort consistency", subtitle = "Evidence from three independent datasets", x = NULL, y = NULL) +
+  labs(title = "B. Cross-cohort consistency", subtitle = "Same direction colours as panel A; size encodes FDR", x = NULL, y = NULL) +
   theme_pub + theme(axis.text.x = element_text(face = "bold"), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.line.y = element_blank(), legend.position = "right")
 
 p2 <- plot_grid(p2a, p2b, ncol = 2, rel_widths = c(1.3, 0.85), align = "h", axis = "tb")

@@ -38,7 +38,23 @@ def parse_series_matrix(path: Path):
                     f"expected {sample_count}, found {len(values)}"
                 )
 
-            sample_fields[field] = values
+            # Some GEO series matrices repeat !Sample_ fields (most commonly
+            # !Sample_characteristics_ch1) multiple times. Preserve all entries
+            # by concatenating per-sample values in appearance order.
+            if field in sample_fields:
+                merged = []
+                for prev, curr in zip(sample_fields[field], values, strict=True):
+                    if not prev:
+                        merged.append(curr)
+                    elif not curr:
+                        merged.append(prev)
+                    elif curr in prev.split("; "):
+                        merged.append(prev)
+                    else:
+                        merged.append(f"{prev}; {curr}")
+                sample_fields[field] = merged
+            else:
+                sample_fields[field] = values
 
     if sample_count is None:
         raise ValueError(f"No !Sample_ metadata found in {path}")

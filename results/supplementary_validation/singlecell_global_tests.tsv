@@ -1,0 +1,4 @@
+reference	subset	test	grouping	n_groups	statistic	pvalue
+GSE116222	epithelial_states	Kruskal-Wallis	assigned_state	6	1023.9568876168494	3.909309842571037e-219
+GSE125527	rectum_diseased	Kruskal-Wallis	celltype	5	1611.6997653108524	0.0
+GSE125527	rectum_healthy	Kruskal-Wallis	celltype	5	2045.0673985878036	0.0

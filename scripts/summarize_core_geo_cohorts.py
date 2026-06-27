@@ -61,12 +61,16 @@ def summarize_gse16879(rows):
 
 
 def summarize_gse23597(rows):
-    pretreatment = [row for row in rows if "/W0" in row.get("title", "")]
+    pretreatment = [
+        row
+        for row in rows
+        if "/W0" in row.get("title", "") and "Placebo" not in row.get("title", "")
+    ]
     responders = [
-        row for row in pretreatment if "wk30 response: Yes" in row.get("characteristics_ch1", "")
+        row for row in pretreatment if "wk8 response: Yes" in row.get("characteristics_ch1", "")
     ]
     nonresponders = [
-        row for row in pretreatment if "wk30 response: No" in row.get("characteristics_ch1", "")
+        row for row in pretreatment if "wk8 response: No" in row.get("characteristics_ch1", "")
     ]
     return {
         "dataset_id": "GSE23597",
@@ -76,7 +80,7 @@ def summarize_gse23597(rows):
         "responder_n": len(responders),
         "nonresponder_n": len(nonresponders),
         "platform": "GPL570",
-        "notes": "Filtered to W0 baseline biopsies using title; response encoded as wk30 response",
+        "notes": "Filtered to infliximab arms only; baseline (W0) biopsies; response encoded as wk8 response",
     }
 
 

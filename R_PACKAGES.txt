@@ -1,4 +1,4 @@
-R dependencies (figures-only)
+R dependencies for figure regeneration:
 - cowplot
 - dplyr
 - ggplot2
@@ -10,10 +10,9 @@ R dependencies (figures-only)
 - stringr
 - tidyr
 
-Optional R dependencies (full bulk re-run from public GEO matrices)
+Additional R dependencies for full re-run from public GEO matrices:
 - msigdbr
 - limma
 - fgsea
 - AnnotationDbi
 - hgu133plus2.db
-

@@ -1,0 +1,2 @@
+dataset_id	therapy	endpoint_definition	response_assessment_window	timepoint	n_total	n_responders	n_nonresponders	signature_name	n_genes_used	direction	Hedges g (nonresponder - responder)	ci_low	ci_high	p_value (Welch t-test)
+GSE92415	golimumab	wk6response (Yes/No)	Week 6 response; baseline biopsy at Week 0	pretreatment_baseline	87	43	44	strict_nonresponse_module_genes.txt	68	higher_in_nonresponders	0.4965317797791073	0.069659508768205	0.9234040507900094	0.0217868373547878

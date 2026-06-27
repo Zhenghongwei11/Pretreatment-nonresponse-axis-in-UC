@@ -1,0 +1,2 @@
+dataset_id	therapy	timepoint	n_total	n_responders	n_nonresponders	signature_name	n_genes_used	direction	hedges_g_nonresponder_minus_responder	ci_low	ci_high	p_value_welch_t
+GSE92415	golimumab	pretreatment_baseline	87	43	44	strict_nonresponse_module_genes.txt	68	higher_in_nonresponders	0.4965317797791073	0.06965950876820509	0.9234040507900094	0.0217868373547878
