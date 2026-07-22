@@ -259,14 +259,14 @@ def format_sheet_gene_means(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--submission-dir", default=".", help="Directory containing supplementary_tables/.")
+    ap.add_argument("--project-dir", default=".", help="Directory containing supplementary_tables/.")
     args = ap.parse_args()
 
-    root = Path(args.submission_dir)
+    root = Path(args.project_dir)
     sup_dir = root / "supplementary_tables"
 
-    # Prefer reviewer-facing XLSX exports if present; fall back to TSV/TXT if needed.
-    # Prefer the reviewer-facing filename (but accept legacy names too).
+    # Prefer curated XLSX exports if present; fall back to TSV/TXT if needed.
+    # Prefer the current filename while accepting legacy names.
     s1_xlsx = sup_dir / "TableS1_68gene_consensus_signature.xlsx"
     s1_xlsx_legacy = sup_dir / "TableS1_strict_nonresponse_module_genes.xlsx"
     s1_txt = sup_dir / "TableS1_strict_nonresponse_module_genes.txt"

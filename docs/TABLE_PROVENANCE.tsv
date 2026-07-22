@@ -8,3 +8,4 @@ Table S5	supplementary_tables/TableS5_singlecell_localization.xlsx	scripts/make_
 Table S6	supplementary_tables/TableS6_gse92415_antiTNF_class_sensitivity.xlsx	scripts/score_signature_one_dataset.py	results/sensitivity/GSE92415_signature_effect.tsv	GSE92415 class-level sensitivity analysis.
 Table S7	supplementary_tables/TableS7_gene_set_overlap_and_singlecell_tests.xlsx	scripts/build_supplementary_validation_support.py	results/scores/lodo_modules/*; results/singlecell/*	LODO gene-set overlap and single-cell statistical tests.
 Rendered supplementary tables	docs/SUPPLEMENTARY_TABLES.md	scripts/build_supplementary_tables_md.py	supplementary_tables/*.xlsx	Readable markdown rendering of Tables S1-S7.
+Combined supplementary workbook	supplementary_tables/SUPPLEMENTARY_TABLES.xlsx	scripts/build_supplementary_tables_xlsx.py	supplementary_tables/TableS*.xlsx	Single workbook containing supplementary Tables S0-S7.

@@ -107,8 +107,9 @@ echo "[step] refresh supplementary validation outputs and Supplementary Figure S
 python3 scripts/build_supplementary_validation_support.py
 
 echo "[step] refresh supplementary-table rendering"
-python3 scripts/build_supplementary_tables_md.py --submission-dir .
+python3 scripts/build_supplementary_tables_md.py --project-dir .
 mkdir -p docs
 mv -f SUPPLEMENTARY_TABLES.md docs/SUPPLEMENTARY_TABLES.md
+python3 scripts/build_supplementary_tables_xlsx.py
 
 echo "[ok] reproducibility outputs written under plots/, results/, supplementary_tables/, and docs/"

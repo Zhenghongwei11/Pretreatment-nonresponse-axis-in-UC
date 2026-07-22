@@ -1,8 +1,8 @@
 # Pretreatment nonresponse axis in ulcerative colitis anti-TNF cohorts
 
-This repository contains the public reproducibility package for a transcriptomic analysis of pretreatment mucosal states associated with anti-TNF nonresponse in ulcerative colitis.
+This repository contains code, derived tables, and exported figures for a transcriptomic analysis of pretreatment mucosal states associated with anti-TNF nonresponse in ulcerative colitis.
 
-The package includes analysis scripts, derived result tables, exported figures, supplementary tables, and provenance files. It does not include manuscript drafts, submission files, local workflow notes, credentials, or raw expression matrices.
+The package includes analysis scripts, derived result tables, exported figures, supplementary tables, and provenance files. Raw expression matrices are downloaded from public repositories when the full workflow is run.
 
 ## Repository layout
 
@@ -31,6 +31,7 @@ Expected outputs:
 - `plots/publication/Figure5_specificity.{png,pdf}`
 - `plots/publication/FigureS1.{png,pdf}`
 - `plots/publication/FigureS3_singlecell_signature_heatmaps.{png,pdf}`
+- `supplementary_tables/SUPPLEMENTARY_TABLES.xlsx`
 - `supplementary_tables/TableS7_gene_set_overlap_and_singlecell_tests.xlsx`
 - `docs/SUPPLEMENTARY_TABLES.md`
 
